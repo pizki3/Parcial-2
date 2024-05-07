@@ -1,7 +1,6 @@
 #ifndef RED_H
 #define RED_H
 
-#include <iostream>
 #include <string>
 
 using namespace std;
@@ -9,13 +8,16 @@ using namespace std;
 class Red {
 private:
     string Nombrearch;
-    string* NombreL;
     int Nlineas;
+    string NombreL[100];
 
 public:
-    Red(string Nombrearch,int Nlineas,string* NombreL);
+    // Constructor
+    Red(string Nombrearch, int Nlineas, string NombreL[100]);
+
+    // Métodos
     void crear();
     void eliminar();
     int contarL();};
 
-#endif
+#endif // RED_H
