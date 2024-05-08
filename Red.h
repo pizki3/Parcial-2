@@ -10,15 +10,16 @@ private:
     string Nombrearch;
     int Nlineas;
     string NombreL[100];
+    string contenido;
 
 public:
     // Constructor
-    Red(string Nombrearch, int Nlineas, string NombreL[100]);
+    Red(string Nombrearch, int Nlineas, string NombreL[100],string contenido);
 
     // Métodos
     void crear();
     void eliminar();
     void contarL();
-    void pertenec();};
+    void pertenece();};
 
 #endif // RED_H
