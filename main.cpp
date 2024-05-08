@@ -4,7 +4,6 @@
 using namespace std;
 
 int main() {
-    int MAX_LINEAS = 5; 
     string* lineas;
     string contenido;
     Red red("Medellin.txt",0,lineas,contenido);
@@ -14,7 +13,10 @@ int main() {
         cout << "2. Eliminar línea\n";
         cout << "3. Contar líneas\n";
         cout << "4. ¿Estacion pertenece?\n";
-        cout << "5. Salir\n";
+        cout << "5. Borrar Estacion\n";
+        cout << "6. contar estaciones de linea\n";
+        cout << "7. crear Estacion\n";
+        cout << "8. Salir\n";
         cout << "Seleccione una opción: ";
         cin >> opcion;
         switch (opcion) {
@@ -31,10 +33,19 @@ int main() {
                 red.pertenece();
                 break;
             case 5:
+                red.EliminarE();
+                break;
+            case 6:
+                red.contarLE();
+                break;
+            case 7:
+                red.CrearE();
+                break;    
+            case 8:
                 cout << "Saliendo del programa.\n";
                 break;
             default:
                 cout << "Opción no válida. Intente de nuevo.\n";}}
-    while (opcion != 5);
+    while (opcion != 8);
     delete[] lineas;
     return 0;}
