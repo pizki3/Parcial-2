@@ -70,7 +70,7 @@ void Red::contarLE(){
         cout<<i+1<<": "<<NombreL[i]<<endl;}
     int opcion;
     cin>>opcion;
-    arreglo[opcion].contarE();}
+    cout<<"Esta linea tiene:"<<arreglo[opcion].contarE()<<" estaciones"<<endl;}
     
 void Red::CrearE(){
     string Estaciones[100];
@@ -87,7 +87,7 @@ void Red::CrearE(){
         cout<<i+1<<": "<<NombreL[i]<<endl;}
     int opcion;
     cin>>opcion;
-    arreglo[opcion].crear();}
+    arreglo[opcion].crear(opcion+1);}
     
 void Red::EliminarE(){
     string Estaciones[100];
@@ -104,7 +104,7 @@ void Red::EliminarE(){
         cout<<i+1<<": "<<NombreL[i]<<endl;}
     int opcion;
     cin>>opcion;
-    arreglo[opcion].eliminar();}
+    arreglo[opcion].eliminar(opcion+1);}
     
 void Red::pertenece() {
     string Estaciones[100];
@@ -126,3 +126,19 @@ void Red::pertenece() {
     int opcion;
     cin>>opcion;
     arreglo[opcion].pertenec(nombre);}
+    
+void Red::contarE(){
+    string Estaciones[100];
+    string linea;
+    Linea arreglo[Nlineas+1];
+    stringstream ss(contenido);
+    int contador=0;
+    while (getline(ss, linea)) {
+        if (contador != 0 && contador <= Nlineas) {
+            arreglo[contador] = Linea(0, linea, Estaciones);}
+        contador++;}
+    contador=0;
+    for (int i=0;i<=Nlineas;i++){
+        contador=contador+arreglo[i].contarE();}
+    contador=contador-(Nlineas-1);
+    cout<<"La red metro tiene: "<<contador;<<"estaciones"<<endl;}
