@@ -6,13 +6,15 @@ using namespace std;
 int main() {
     int MAX_LINEAS = 5; 
     string* lineas;
-    Red red("Medellin.txt",0,lineas);
+    string contenido;
+    Red red("Medellin.txt",0,lineas,contenido);
     int opcion;
     do {cout << "\nMenú de opciones:\n";
         cout << "1. Crear nueva línea\n";
         cout << "2. Eliminar línea\n";
         cout << "3. Contar líneas\n";
-        cout << "4. Salir\n";
+        cout << "4. ¿Estacion pertenece?\n";
+        cout << "5. Salir\n";
         cout << "Seleccione una opción: ";
         cin >> opcion;
         switch (opcion) {
@@ -23,13 +25,16 @@ int main() {
                 red.eliminar();
                 break;
             case 3:
-                cout << "Número de líneas: " << red.contarL()<< endl;
+                red.contarL();
                 break;
             case 4:
+                red.pertenece();
+                break;
+            case 5:
                 cout << "Saliendo del programa.\n";
                 break;
             default:
                 cout << "Opción no válida. Intente de nuevo.\n";}}
-    while (opcion != 4);
+    while (opcion != 5);
     delete[] lineas;
     return 0;}
