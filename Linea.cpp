@@ -10,9 +10,11 @@ Linea::Linea(int _Nest, string _NombreEs,string _Estaciones[100]) {
     for (int i = 0; i < 100; ++i) {
         Estaciones[i] = _Estaciones[i];}
     for (char c : NombreEs) {
-        if (c != ',' && c !='.' && c!='\n'){
-            Estaciones[Nest] = c;
-            Nest++;}}}
+        if (c != ',' && c != '.' && c != '\n') {
+            Estaciones[Nest] += c;}
+        else if (c == ',' || c == '.') {
+            Nest++;
+        }}}
 
 
 void Linea::crear() {
@@ -56,4 +58,7 @@ void Linea::pertenec(string nombreE){
     for (int i = 0; i <=Nest; ++i) {
         if (Estaciones[i] == nombreE) {
             cout<<"Esta Estacion si pertenece a esta Linea"<<endl;
-            return;}}}
+            return;}
+        cout<<Estaciones[i]<<nombreE<<endl;}
+    cout<<"Esta Estacion No pertenece a esta Linea"<<endl;
+            return;}
