@@ -12,9 +12,9 @@ private:
 public:
     Linea() : Nest(0), NombreEs(""), Estaciones{} {}
     Linea(int Nest,string NombreEs,string Estaciones[100]);
-    void crear();
-    void eliminar();
-    void contarE();
+    void crear(int Linea);
+    void eliminar(int Linea);
+    int contarE();
     void pertenec(string nombreE);};
 
 #endif
