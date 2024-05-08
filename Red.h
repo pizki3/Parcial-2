@@ -23,6 +23,7 @@ public:
     void EliminarE();
     void CrearE();
     void contarLE();
-    void pertenece();};
+    void pertenece();
+    void contarE();};
 
 #endif // RED_H
