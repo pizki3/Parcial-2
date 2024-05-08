@@ -10,10 +10,11 @@ private:
     string Estaciones[100];
 
 public:
-    // Constructor
+    Linea() : Nest(0), NombreEs(""), Estaciones{} {}
     Linea(int Nest,string NombreEs,string Estaciones[100]);
     void crear();
     void eliminar();
-    int contarE();};
+    void contarE();
+    void pertenec(string nombreE);};
 
 #endif
