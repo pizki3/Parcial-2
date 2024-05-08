@@ -29,7 +29,7 @@ Red::Red(string _Nombrearch,int _Nlineas,string _NombreL[100],string _contenido)
         else if(c =='\n'){
             break;}
         else{}}}
-
+        
 void Red::crear() {
     string Nombre;
     cout << "Ingrese nombre de línea a agregar: " << endl;
@@ -54,6 +54,57 @@ void Red::eliminar() {
 
 void Red::contarL() {
     cout<<"La Red tiene: "<< Nlineas<<" Lineas"<<endl;}
+    
+void Red::contarLE(){
+    string Estaciones[100];
+    string linea;
+    Linea arreglo[Nlineas+1];
+    stringstream ss(contenido);
+    int contador=0;
+    while (getline(ss, linea)) {
+        if (contador != 0 && contador <= Nlineas) {
+            arreglo[contador] = Linea(0, linea, Estaciones);}
+        contador++;}
+    cout<<"En que linea desea contar las Estaciones:"<<endl;
+    for (int i=0; i<Nlineas;i++){
+        cout<<i+1<<": "<<NombreL[i]<<endl;}
+    int opcion;
+    cin>>opcion;
+    arreglo[opcion].contarE();}
+    
+void Red::CrearE(){
+    string Estaciones[100];
+    string linea;
+    Linea arreglo[Nlineas+1];
+    stringstream ss(contenido);
+    int contador=0;
+    while (getline(ss, linea)) {
+        if (contador != 0 && contador <= Nlineas) {
+            arreglo[contador] = Linea(0, linea, Estaciones);}
+        contador++;}
+    cout<<"En que linea desea crear la estacion:"<<endl;
+    for (int i=0; i<Nlineas;i++){
+        cout<<i+1<<": "<<NombreL[i]<<endl;}
+    int opcion;
+    cin>>opcion;
+    arreglo[opcion].crear();}
+    
+void Red::EliminarE(){
+    string Estaciones[100];
+    string linea;
+    Linea arreglo[Nlineas+1];
+    stringstream ss(contenido);
+    int contador=0;
+    while (getline(ss, linea)) {
+        if (contador != 0 && contador <= Nlineas) {
+            arreglo[contador] = Linea(0, linea, Estaciones);}
+        contador++;}
+    cout<<"En que linea desea eliminar:"<<endl;
+    for (int i=0; i<Nlineas;i++){
+        cout<<i+1<<": "<<NombreL[i]<<endl;}
+    int opcion;
+    cin>>opcion;
+    arreglo[opcion].eliminar();}
     
 void Red::pertenece() {
     string Estaciones[100];
