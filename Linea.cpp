@@ -28,12 +28,14 @@ void Linea::crear() {
         Estaciones[i]=Estaciones[i - 1];}
     cout<<"Ingrese nombre de la Estacion"<<endl;
     string nombre;
-    cin>>nombre;
+    cin.ignore();
+    getline(cin,nombre);
     for (int i = 0; i <=Nest; ++i) {
-        if (Estaciones[i] == nombre) {
+        if (Estaciones[i]==nombre) {
             cout<<"Esta estacion ya existe"<<endl;
             return;}}
-    Estaciones[opcion] =nombre;}
+    Estaciones[opcion] =nombre;
+    cout << "estacion creada" <<endl;}
 
 
 void Linea::eliminar() {
@@ -44,12 +46,13 @@ void Linea::eliminar() {
     cin >> opcion;
     opcion=opcion-1;
     for (char c : Estaciones[opcion]) {
-        if (c=='_'){
+        if (c=='-'){
             cout <<"Esta estacion es de transferencia no es posible eliminar"<<endl;
             return;}}
     for (int i = opcion; i<Nest- 1; ++i) {
             Estaciones[i] = Estaciones[i + 1];}
-    Nest--;}
+    Nest--;
+    cout<<"Estacion Eliminada"<<endl;}
 
 void Linea::contarE() {
     cout<<"Esta linea tiene:"<<Nest<<" estaciones"<<endl;}
@@ -58,7 +61,6 @@ void Linea::pertenec(string nombreE){
     for (int i = 0; i <=Nest; ++i) {
         if (Estaciones[i] == nombreE) {
             cout<<"Esta Estacion si pertenece a esta Linea"<<endl;
-            return;}
-        cout<<Estaciones[i]<<nombreE<<endl;}
+            return;}}
     cout<<"Esta Estacion No pertenece a esta Linea"<<endl;
             return;}
