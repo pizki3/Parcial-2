@@ -1,4 +1,5 @@
 #include "Linea.h"
+#include "funciones.h"
 #include <iostream>
 #include <string>
 
@@ -17,7 +18,7 @@ Linea::Linea(int _Nest, string _NombreEs,string _Estaciones[100]) {
         }}}
 
 
-void Linea::crear() {
+void Linea::crear(int Linea) {
     int opcion;
     cout <<"Despues de que estacion quiere crear la estacion:"<<endl;
     cout<<"0: Primera estacion"<<endl;
@@ -35,16 +36,24 @@ void Linea::crear() {
             cout<<"Esta estacion ya existe"<<endl;
             return;}}
     Estaciones[opcion] =nombre;
+    Nest++;
+    string contenido;
+    for (int i=0; i<Nest;++i){
+        if (i!=Nest-1){
+            contenido=contenido+Estaciones[i]+",";}
+        else {contenido=contenido+Estaciones[i]+".";}}
+    actualizarLinea(Linea,contenido);
     cout << "estacion creada" <<endl;}
 
 
-void Linea::eliminar() {
+void Linea::eliminar(int Linea){
     cout <<"Que estacion desea eliminar:"<<endl;
     for (int i=0; i<Nest;i++){
         cout <<i+1<<": "<< Estaciones[i]<<endl;}
     int opcion;
     cin >> opcion;
     opcion=opcion-1;
+    string contenido;
     for (char c : Estaciones[opcion]) {
         if (c=='-'){
             cout <<"Esta estacion es de transferencia no es posible eliminar"<<endl;
@@ -52,10 +61,15 @@ void Linea::eliminar() {
     for (int i = opcion; i<Nest- 1; ++i) {
             Estaciones[i] = Estaciones[i + 1];}
     Nest--;
+    for (int i=0; i<Nest;++i){
+        if (i!=Nest-1){
+            contenido=contenido+Estaciones[i]+",";}
+        else {contenido=contenido+Estaciones[i]+".";}}
+    actualizarLinea(Linea,contenido);
     cout<<"Estacion Eliminada"<<endl;}
 
-void Linea::contarE() {
-    cout<<"Esta linea tiene:"<<Nest<<" estaciones"<<endl;}
+int Linea::contarE() {
+    return Nest;}
     
 void Linea::pertenec(string nombreE){
     for (int i = 0; i <=Nest; ++i) {
