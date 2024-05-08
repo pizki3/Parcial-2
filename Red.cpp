@@ -3,16 +3,17 @@
 #include <fstream>
 #include <string>
 #include <iostream>
+#include <sstream>
 
 using namespace std;
 
-Red::Red(string _Nombrearch,int _Nlineas,string _NombreL[100]){
+Red::Red(string _Nombrearch,int _Nlineas,string _NombreL[100],string _contenido){
     Nombrearch=_Nombrearch;
     Nlineas=_Nlineas;
+    contenido=_contenido;
     for (int i = 0; i < Nlineas; ++i) {
         NombreL[i] = _NombreL[i];}
     ifstream archivo(Nombrearch);
-    string contenido;
     if (archivo.is_open()) {
         string linea;
         while (getline(archivo, linea)) {
@@ -54,8 +55,23 @@ void Red::eliminar() {
 void Red::contarL() {
     cout<<"La Red tiene: "<< Nlineas<<" Lineas"<<endl;}
     
-void Red::pertenec() {
+void Red::pertenece() {
     string Estaciones[100];
-    Linea arreglo[Nlineas];
-    for (int i = 0; i < Nlineas; ++i) {
-        arreglo[i] = Linea(0, "", Estaciones);}}
+    string linea;
+    Linea arreglo[Nlineas+1];
+    stringstream ss(contenido);
+    int contador=0;
+    while (getline(ss, linea)) {
+        if (contador != 0 && contador <= Nlineas) {
+            arreglo[contador] = Linea(0, linea, Estaciones);}
+        contador++;}
+    string nombre;
+    cout<<"ingrese nombre de estacion:"<<endl;
+    cin.ignore();
+    getline(cin, nombre);
+    cout<<"En que linea desea revisar;"<<endl;
+    for (int i=0; i<Nlineas;i++){
+        cout<<i+1<<": "<<NombreL[i]<<endl;}
+    int opcion;
+    cin>>opcion;
+    arreglo[opcion].pertenec(nombre);}
