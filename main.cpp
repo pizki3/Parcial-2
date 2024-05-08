@@ -6,9 +6,9 @@ using namespace std;
 int main() {
     string* lineas;
     string contenido;
-    Red red("Medellin.txt",0,lineas,contenido);
     int opcion;
-    do {cout << "\nMenú de opciones:\n";
+    do {Red red("Medellin.txt",0,lineas,contenido);
+        cout << "\nMenú de opciones:\n";
         cout << "1. Crear nueva línea\n";
         cout << "2. Eliminar línea\n";
         cout << "3. Contar líneas\n";
@@ -16,7 +16,8 @@ int main() {
         cout << "5. Borrar Estacion\n";
         cout << "6. contar estaciones de linea\n";
         cout << "7. crear Estacion\n";
-        cout << "8. Salir\n";
+        cout << "8. Contar Estaciones de Red\n";
+        cout << "9. Salir\n";
         cout << "Seleccione una opción: ";
         cin >> opcion;
         switch (opcion) {
@@ -42,8 +43,16 @@ int main() {
                 red.CrearE();
                 break;    
             case 8:
+                red.contarE();
+                break;   
+            case 9:
                 cout << "Saliendo del programa.\n";
                 break;
+            default:
+                cout << "Opción no válida. Intente de nuevo.\n";}}
+    while (opcion != 9);
+    delete[] lineas;
+    return 0;}
             default:
                 cout << "Opción no válida. Intente de nuevo.\n";}}
     while (opcion != 8);
