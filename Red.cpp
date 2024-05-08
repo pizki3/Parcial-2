@@ -1,4 +1,5 @@
 #include "Red.h"
+#include "Linea.h"
 #include <fstream>
 #include <string>
 #include <iostream>
@@ -23,14 +24,10 @@ Red::Red(string _Nombrearch,int _Nlineas,string _NombreL[100]){
     for (char c : contenido) {
         if (c != ',' && c !='.' && c!='\n'){
             NombreL[Nlineas] = c;
-            cout<<NombreL[Nlineas]<<endl;
-            Nlineas++;
-            cout<<Nlineas<<endl;}
+            Nlineas++;}
         else if(c =='\n'){
             break;}
-        else{}}
-    
-}
+        else{}}}
 
 void Red::crear() {
     string Nombre;
@@ -54,5 +51,11 @@ void Red::eliminar() {
     else {
         cout << "Todas las líneas tienen estación de transferencia" << endl;}}
 
-int Red::contarL() {
-    return Nlineas;}
+void Red::contarL() {
+    cout<<"La Red tiene: "<< Nlineas<<" Lineas"<<endl;}
+    
+void Red::pertenec() {
+    string Estaciones[100];
+    Linea arreglo[Nlineas];
+    for (int i = 0; i < Nlineas; ++i) {
+        arreglo[i] = Linea(0, "", Estaciones);}}
