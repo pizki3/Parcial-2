@@ -18,6 +18,7 @@ public:
     // Métodos
     void crear();
     void eliminar();
-    int contarL();};
+    void contarL();
+    void pertenec();};
 
 #endif // RED_H
