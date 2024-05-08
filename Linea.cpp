@@ -51,3 +51,9 @@ void Linea::eliminar() {
 
 void Linea::contarE() {
     cout<<"Esta linea tiene:"<<Nest<<" estaciones"<<endl;}
+    
+void Linea::pertenec(string nombreE){
+    for (int i = 0; i <=Nest; ++i) {
+        if (Estaciones[i] == nombreE) {
+            cout<<"Esta Estacion si pertenece a esta Linea"<<endl;
+            return;}}}
