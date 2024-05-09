@@ -7,7 +7,9 @@ int main() {
     string* lineas;
     string contenido;
     int opcion;
-    do {Red red("Medellin.txt",0,lineas,contenido);
+    Red red("Medellin.txt", 0, lineas, contenido);
+    do {
+        Red red("Medellin.txt", 0, lineas, contenido);
         cout << "\nMenú de opciones:\n";
         cout << "1. Crear nueva línea\n";
         cout << "2. Eliminar línea\n";
@@ -20,6 +22,7 @@ int main() {
         cout << "9. Salir\n";
         cout << "Seleccione una opción: ";
         cin >> opcion;
+
         switch (opcion) {
             case 1:
                 red.crear();
@@ -41,20 +44,18 @@ int main() {
                 break;
             case 7:
                 red.CrearE();
-                break;    
+                break;
             case 8:
                 red.contarE();
-                break;   
+                break;
             case 9:
                 cout << "Saliendo del programa.\n";
                 break;
             default:
-                cout << "Opción no válida. Intente de nuevo.\n";}}
-    while (opcion != 9);
+                cout << "Opción no válida. Intente de nuevo.\n";
+        }
+    } while (opcion != 9);
+
     delete[] lineas;
-    return 0;}
-            default:
-                cout << "Opción no válida. Intente de nuevo.\n";}}
-    while (opcion != 8);
-    delete[] lineas;
-    return 0;}
+    return 0;
+}
