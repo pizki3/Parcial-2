@@ -141,4 +141,4 @@ void Red::contarE(){
     for (int i=0;i<=Nlineas;i++){
         contador=contador+arreglo[i].contarE();}
     contador=contador-(Nlineas-1);
-    cout<<"La red metro tiene: "<<contador;<<"estaciones"<<endl;}
+    cout<<"La red metro tiene: "<<contador<<"estaciones"<<endl;}
